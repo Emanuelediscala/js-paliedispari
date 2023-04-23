@@ -11,14 +11,13 @@ function getRndnumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 // PALINDROMA
-
 // Inizializzione vabili
 let ParolaUtente = document.getElementById("ParolaUtente");
 let Parolalcontrario;
 let btn = document.getElementById("Testparola")
 let dichiarazioneParola; 
 let Palindroma = document.getElementById ("Palindroma"); 
- // Aggiungo Evento click con funzione di controllo della parol
+ // Aggiungo Evento click con funzione di controllo della parola
 btn.addEventListener("click", function () {
     DatoUtente = ParolaUtente.value;
     DatoUtente = DatoUtente.toLowerCase();
@@ -33,12 +32,9 @@ btn.addEventListener("click", function () {
         Palindroma.append(dichiarazioneParola);
     }
 })
- // PALINDROM
  // PARI O DISPARI
  // Inizializzione vabili
 let SceltaUtente = document.getElementById("NumeroUtente");
-let Sceltapari = document.getElementById("Pari");
-let SceltaDispari = document.getElementById("Dispari");
 let Possibilita = document.getElementById("SceltaPariDispari")
 let Startgo = document.getElementById("letsgo");
 let RandomNumber;
@@ -46,12 +42,11 @@ let Numeroscelto;
 let finalNumber;
 let GenFinalNumber = document.getElementById("GenFinalNumber");
 let Specchietto = document.getElementById("Specchietto");
-let PCresult;
 let genPcNumber = document.getElementById("GenPcNumber");
-
+let DivPali = document.getElementById("Paliedispari")
 
 Startgo.addEventListener("click", function () {
-     // Definsco valore utente
+    // Definsco valore utente
     Numeroscelto = parseInt(SceltaUtente.value);
      // Definisco la Scelta del pari o dispari
     let decisione;
@@ -61,21 +56,23 @@ Startgo.addEventListener("click", function () {
      // Combo per Numeri UTENTI
     FinalNumber = Numeroscelto + RandomNumber;
     
-
     // CONDIZIONE PER DECRETARE IL VINCITORE
     
     if (FinalNumber % 2 == Possibilita.value) {
         console.log("HAI VINTO");
         let SpamWin = document.createElement("p")
         SpamWin.innerHTML = "Hai vinto"
-        Specchietto.append(SpamWin)
-        
+        Specchietto.append(SpamWin);
+        DivPali.classList.remove("bg-primary")
+        DivPali.classList.add("bg-success")
     }
     else if (FinalNumber % 2 !== Possibilita.value) {
-        console.log("HAI PERSO")
+        console.log("HAI PERSO");
         let SpamLose = document.createElement("p")
         SpamLose.innerHTML = "Hai perso"
-        Specchietto.append(SpamLose)
+        Specchietto.append(SpamLose);
+        DivPali.classList.remove("bg-primary")
+        DivPali.classList.add("bg-danger")
     }
     GenFinalNumber.innerHTML = FinalNumber;
     genPcNumber.innerHTML = RandomNumber;
