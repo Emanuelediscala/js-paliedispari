@@ -58,15 +58,15 @@ Startgo.addEventListener("click", function () {
     
     // CONDIZIONE PER DECRETARE IL VINCITORE
     
-    if (FinalNumber % 2 == Possibilita.value) {
+    if (FinalNumber % 2 == decisione) {
         console.log("HAI VINTO");
-        let SpamWin = document.createElement("p")
+        let SpamWin = document.createElement("p");
         SpamWin.innerHTML = "Hai vinto"
         Specchietto.append(SpamWin);
-        DivPali.classList.remove("bg-primary")
-        DivPali.classList.add("bg-success")
+        DivPali.classList.remove("bg-primary");
+        DivPali.classList.add("bg-success");
     }
-    else if (FinalNumber % 2 !== Possibilita.value) {
+    else if (FinalNumber % 2 !== decisione) {
         console.log("HAI PERSO");
         let SpamLose = document.createElement("p")
         SpamLose.innerHTML = "Hai perso"
